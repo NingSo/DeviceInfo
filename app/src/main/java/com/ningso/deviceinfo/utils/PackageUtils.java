@@ -1,8 +1,12 @@
 package com.ningso.deviceinfo.utils;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.Settings;
+import android.text.TextUtils;
 
 import java.io.PrintWriter;
 
@@ -60,5 +64,27 @@ public class PackageUtils {
         } else { // 未知情况
             return false;
         }
+    }
+
+    /**
+     * check Notification permission
+     *
+     * @param activity
+     * @return
+     */
+    public static boolean checkNotificationReadPermission(Activity activity) {
+        String notiStr = Settings.Secure.getString(activity.getContentResolver(), "enabled_notification_listeners");
+        if (notiStr != null && !TextUtils.isEmpty(notiStr)) {
+            final String[] names = notiStr.split(":");
+            for (String name : names) {
+                ComponentName cn = ComponentName.unflattenFromString(name);
+                if (cn != null) {
+                    if (activity.getPackageName().equals(cn.getPackageName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

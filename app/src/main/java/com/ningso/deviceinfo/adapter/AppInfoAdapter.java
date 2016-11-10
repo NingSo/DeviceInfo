@@ -55,7 +55,7 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppViewH
         final AppInfo appInfo = mList.get(position);
         holder.appIcon.setImageDrawable(appInfo.getAppicon());
         holder.appName.setText(appInfo.getAppname());
-        holder.appVersion.setText(appInfo.getVersion());
+        holder.appVersion.setText("Code: " + appInfo.getVersionCode() + " Name: " + appInfo.getVersion());
         holder.appSign.setText(String.format(mContext.getString(R.string.msg_app_sign), appInfo.getSign()));
         holder.apkPath.setText(String.format(mContext.getString(R.string.msg_app_path), appInfo.getApkPath()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,8 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppViewH
                 Snackbar.make(v, "应用信息已复制到剪切板", Snackbar.LENGTH_SHORT).show();
                 StringBuffer strInfo = new StringBuffer();
                 strInfo.append("appName: ").append(appInfo.getAppname())
-                        .append("\nVersionCode: ").append(appInfo.getVersion())
+                        .append("\nVersionName: ").append(appInfo.getVersion())
+                        .append("\nVersionCode: ").append(appInfo.getVersionCode())
                         .append("\nSign: ").append(appInfo.getSign());
                 getCooper(strInfo.toString());
             }

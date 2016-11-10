@@ -94,6 +94,7 @@ public class AppInfoActivity extends AppCompatActivity {
                 //非系统应用
                 appInfo.setPackname(packageInfo.packageName);
                 appInfo.setVersion(packageInfo.versionName);
+                appInfo.setVersionCode(packageInfo.versionCode);
                 appInfo.setApkPath(packageInfo.applicationInfo.sourceDir);
                 appInfo.setAppicon(packageInfo.applicationInfo.loadIcon(packageManager));
                 appInfo.setAppname(packageInfo.applicationInfo.loadLabel(packageManager).toString());
@@ -104,6 +105,7 @@ public class AppInfoActivity extends AppCompatActivity {
                 //系统应用
                 appInfo.setPackname(packageInfo.packageName);
                 appInfo.setVersion(packageInfo.versionName);
+                appInfo.setVersionCode(packageInfo.versionCode);
                 appInfo.setApkPath(packageInfo.applicationInfo.sourceDir);
                 appInfo.setAppicon(packageInfo.applicationInfo.loadIcon(packageManager));
                 appInfo.setAppname(packageInfo.applicationInfo.loadLabel(packageManager).toString());

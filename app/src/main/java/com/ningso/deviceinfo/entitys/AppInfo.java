@@ -10,6 +10,7 @@ public class AppInfo {
     private String packname;
     private boolean userapp;
     private String version;
+    private int versionCode;
     private String sign;
 
     public Drawable getAppicon() {
@@ -68,6 +69,14 @@ public class AppInfo {
         this.apkPath = apkPath;
     }
 
+    public int getVersionCode() {
+        return versionCode;
+    }
+
+    public void setVersionCode(int versionCode) {
+        this.versionCode = versionCode;
+    }
+
     @Override
     public String toString() {
         return "AppInfo{" +
@@ -76,6 +85,7 @@ public class AppInfo {
                 ", packname='" + packname + '\'' +
                 ", userapp=" + userapp +
                 ", version='" + version + '\'' +
+                ", versionCode='" + versionCode + '\'' +
                 ", sign='" + sign + '\'' +
                 '}';
     }
